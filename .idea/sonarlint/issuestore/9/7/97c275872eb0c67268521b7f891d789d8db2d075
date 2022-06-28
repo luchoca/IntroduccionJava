@@ -1,0 +1,22 @@
+
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’ÃìÙşÿÿÿÿ
+e	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ÜÓw
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½´ì£şÿÿÿÿ
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹°è
+e	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×£
+2
+java:S1643"Use a StringBuilder instead.(ûäÓù
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(„­Ãıÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ë‹òó
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ôµšã
+Q
+java:S1481"6Remove this unused "NumeroDiferencias" local variable.(½´ì£şÿÿÿÿ
+?
+java:S1197"*Move the array designators [] to the type.(×£
+S	java:S106"9Replace this use of System.out or System.err by a logger.(šÿæøÿÿÿÿ
+F
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ
+H
+java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ
+F
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ
