@@ -16,17 +16,17 @@ public class Ejercicio12 {
         String Diferencias = "";
         char ListaPalabra2[] = Palabra2.toCharArray();
 
-        for (int p1 = 0; p1 < Palabra1.toLowerCase().length(); p1++) {
-        for (int p2 =0; p2 < ListaPalabra2[p2]; p2++){
-            if (Palabra1.charAt(p1) == ListaPalabra2[p2]){
-                NumeroDiferencias++;
-                Diferencias += Palabra1.charAt(p1);
-                System.out.println("Las diferencias son: " + Diferencias);
+        for (int p1 = 0; p1 < Palabra1.length(); p1++) {
+            for (int p2 = 0; p2 < ListaPalabra2[p2]; p2++) {
+                if (Palabra1.charAt(p1) != ListaPalabra2[p2]) {
+                    NumeroDiferencias++;
+                    Diferencias += Palabra1.charAt(p1);
+                    System.out.println("Las diferencias son: " + Diferencias);
 
+                }
             }
-        }
 
-      }
+        }
     }
 }
 

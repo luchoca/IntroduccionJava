@@ -24,7 +24,7 @@ public class Ejercicio15 {
             Numero = caputre.nextInt();
             switch (Numero) {
                 case 1:
-                    System.out.println("Nuevo Actor");
+                    System.out.println("NUEVO ACTOR");
                     break;
                 case 2:
                     System.out.println("BUSCAR ACTOR");

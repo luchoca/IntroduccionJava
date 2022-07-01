@@ -1,53 +1,177 @@
 package com.sofka.software.introduccionjava.Ejercicio16;
 
 public class Persona {
-    String Nombre;
-    int Edad;
-    int DNI;
-    String Hombre = "H";
-    String Mujer = "M";
-    int Peso;
-    int Altura;
+
+    //Constantes
+
+    private final static char SEXODEFAULT = 'H';
+
+    public static final int INFRAPESO = -1;
+
+    public static final int PESOIDEAL = 0;
+
+    public static final int SOBREPESO = 1;
+    //Atributos
+
+    private String nombre;
+
+    private int edad;
+
+    private String DNI;
+
+
+    private final char sexo;
+
+    private double peso;
+
+    private double altura;
+
+
+    public Persona() {
+
+        this("", 0, SEXODEFAULT, 0, 0);
+
+    }
+
+
+
+     */
+
+    public Persona(String nombre, int edad, char sexo) {
+
+        this(nombre, edad, sexo, 0, 0);
+
+    }
+
+
+
+
+    public Persona(String nombre, int edad, char sexo, double peso, double altura) {
+
+        this.nombre = nombre;
+        this.edad = edad;
+        this.peso = peso;
+        this.altura = altura;
+        this.sexo = sexo;
+        comprobarSexo();
+        generarDni();
+
+    }
+
+
+    //Métodos privados
+
+    private void comprobarSexo() {
+
+
+        //Si el sexo no es una H o una M, por defecto es H
+
+        if (sexo != 'H' && sexo != 'M') {
+            this.sexo = SEXODEFAULT;
+
+        }
+
+    }
+
+
+    private void generarDni() {
+        final int divisor = 23;
+
+        //Generamos un número de 8 digitos
+        int numDNI = ((int) Math.floor(Math.random() * (100000000 - 10000000) + 10000000));
+        int res = numDNI - (numDNI / divisor * divisor);
+
+        //Calculamos la letra del DNI
+        char letraDNI = generaLetraDNI(res);
+        //Pasamos el DNI a String
+        DNI = Integer.toString(numDNI) + letraDNI;
+
+    }
+
+
+    private char generaLetraDNI(int res) {
+        char letras[] = {'T', 'R', 'W', 'A', 'G', 'M', 'Y',
+                'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z',
+                'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
+
+        return letras[res];
+
+    }
+
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+
+    }
+
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+
+    }
+
+
+
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
+
+    }
+
+
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+
+    }
+
+
+
+    public int calcularIMC() {
+
+        //Calculamos el peso de la persona
+        double pesoActual = peso / (Math.pow(altura, 2));
+
+        //Segun el peso, devuelve un codigo
+        if (pesoActual >= 20 && pesoActual <= 25) {
+            return PESOIDEAL;
+        } else if (pesoActual < 20) {
+            return INFRAPESO;
+        } else {
+            return SOBREPESO;
+
+        }
+
+    }
+
+
+
+    public boolean esMayorDeEdad() {
+        boolean mayor = false;
+        if (edad >= 18) {
+            mayor = true;
+        }
+        return mayor;
+
+    }
+
+
+    @Override
+
+    public String toString() {
+        String sexo;
+        if (this.sexo == 'H') {
+            sexo = "hombre";
+        } else {
+            sexo = "mujer";
+        }
+
+        return "Informacion de la persona:n"
+                + "Nombre: " + nombre + "/n"
+                + "Sexo: " + sexo + "/n"
+                + "Edad: " + edad + " años /n"
+                + "DNI: " + DNI + "/n"
+                + "Peso: " + peso + " kg /n"
+                + "Altura: " + altura + " metros /n";
+    }
+
 }
-
-
-
-//Haz una clase llamada Persona que siga las siguientes condiciones:
-//Sus atributos son: nombre, edad, DNI, sexo (H hombre, M mujer), peso y altura.
-// No queremos que se accedan directamente a ellos. Piensa que modificador de acceso es el más adecuado,
-// también su tipo.
-// Si quieres añadir algún atributo puedes hacerlo.
-//Por defecto, todos los atributos menos el DNI serán valores por defecto según su tipo
-// (0 números, cadena vacía para String, etc.). Sexo será hombre por defecto, usa una constante para ello.
-//
-// Se implantarán varios constructores:
-//Un constructor por defecto.
-//Un constructor con el nombre, edad y sexo, el resto por defecto.
-//Un constructor con todos los atributos como parámetro.
-//
-//Los métodos que se implementaran son:
-//
-//
-//calcularIMC(): calculara si la persona está en su peso ideal (peso en kg/(altura^2  en m)),
-// si esta fórmula devuelve un valor menor que 20, la función devuelve un -1, si devuelve un número entre 20 y 25
-// (incluidos), significa que está por debajo de su peso ideal la función devuelve un 0  y si devuelve un valor mayor que
-// 25 significa que tiene sobrepeso, la función devuelve un 1. Te recomiendo que uses constantes para devolver estos valores.
-//
-//esMayorDeEdad(): indica si es mayor de edad, devuelve un booleano.
-// comprobarSexo(char sexo): comprueba que el sexo introducido es correcto. Si no es correcto, sera H.
-// No será visible al exterior.
-// toString(): devuelve toda la información del objeto.
- //generaDNI(): genera un número aleatorio de 8 cifras, genera a partir de este su número su letra correspondiente.
-// Este método será invocado cuando se construya el objeto. Puedes dividir el método para que te sea más fácil.
-// No será visible al exterior.
-//Métodos set de cada parámetro, excepto de DNI.
-//
-//Ahora, crea una clase ejecutable que haga lo siguiente:
-//Pide por teclado el nombre, la edad, sexo, peso y altura.
-// Crea 3 objetos de la clase anterior, el primer objeto obtendrá las anteriores variables pedidas por teclado,
-//el segundo objeto obtendrá todos los anteriores menos el peso y la altura y el último por defecto, para este último
-// utiliza los métodos set para darle a los atributos un valor.
-//Para cada objeto, deberá comprobar si está en su peso ideal, 4
-// tiene sobrepeso o por debajo de su peso ideal con un mensaje.
-//Indicar para cada objeto si es mayor de edad.
-//Por último, mostrar la información de cada objeto.

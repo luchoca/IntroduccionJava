@@ -6,7 +6,7 @@ M
 java:S6126	"2Replace this String concatenation with Text block.(ÿ§ˆˆÿÿÿÿÿ
 N	java:S106"9Replace this use of System.out or System.err by a logger.(«¬¯ù
 S	java:S106"9Replace this use of System.out or System.err by a logger.(×À±Áüÿÿÿÿ
-M	java:S106"9Replace this use of System.out or System.err by a logger.(üŠ÷2
+S	java:S106"9Replace this use of System.out or System.err by a logger.(¥²È„ÿÿÿÿÿ
 N	java:S106"9Replace this use of System.out or System.err by a logger.(òæùñ
 S	java:S106!"9Replace this use of System.out or System.err by a logger.(Ž¥‰½ÿÿÿÿÿ
 N	java:S106$"9Replace this use of System.out or System.err by a logger.(à‘°Û

@@ -10,7 +10,7 @@ public class Ejercicio11 {
         char vocales[] = {'a', 'e', 'i', 'o', 'u','A','E','I','O','U'};
         int NumeroVocales = 0;
         String Voc = "";
-        for(int i = 0; i< Frase.toLowerCase().length(); i++) { //RECORRE STRING
+        for(int i = 0; i< Frase.length(); i++) { //RECORRE STRING
             for (int v=0; v<vocales.length; v++){               // RECORRE [VOCALES]
                 if(Frase.charAt(i) == vocales[v]){              //va recorriendo la frase y si coincide con alguna [vocal]
                 NumeroVocales++;                               //aumenta Numero contador
