@@ -1,0 +1,27 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÈñäÒÿÿÿÿÿ
+q	java:S116"\Rename this field "ConsumoEnergetico" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç“œÑ
+n
+java:S1845"XRename field "precioBase" to prevent any misunderstanding/clash with field "PRECIOBASE".(Ø¬¼
+d
+java:S1845"NRename field "color" to prevent any misunderstanding/clash with field "COLOR".(ÙÌ¢í
+g
+java:S1845"LRename field "peso" to prevent any misunderstanding/clash with field "PESO".(ø’¯“øÿÿÿÿ
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(”³Èõûÿÿÿÿ
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ôš†
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(™ÏÙæ
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(äõƒı
+O
+java:S34004"9Remove this method and declare a constant for this value.(¦Øİ
+G
+java:S11723",Remove this unused method parameter "letra".(§€­“şÿÿÿÿ
+O
+java:S34008"9Remove this method and declare a constant for this value.( û·¾
+B
+java:S11727",Remove this unused method parameter "color".(ÅòÆÅ
+V
+java:S3400<"9Remove this method and declare a constant for this value.(”·³›8ˆàßä›0

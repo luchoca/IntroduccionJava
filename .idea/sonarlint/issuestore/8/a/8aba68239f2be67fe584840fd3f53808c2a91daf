@@ -1,0 +1,6 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Åçüøÿÿÿÿ
+x
+java:S1845"bRename field "numeroTemporada" to prevent any misunderstanding/clash with field "NUMEROTEMPORADA".(³÷²Œ
+q
+java:S1845"VRename field "entregado" to prevent any misunderstanding/clash with field "ENTREGADO".(¨ÅÈüÿÿÿÿ

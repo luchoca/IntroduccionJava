@@ -1,0 +1,6 @@
+
+k	java:S117S"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ö‚ úÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Øì»¤úÿÿÿÿ
+h	java:S116"NRename this field "DNI" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ö·ÑÚüÿÿÿÿ
+R
+java:S1117S"7Rename "DNI" which hides the field declared at line 16.(Ö‚ úÿÿÿÿ

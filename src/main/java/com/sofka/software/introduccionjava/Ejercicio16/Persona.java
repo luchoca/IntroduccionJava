@@ -2,176 +2,119 @@ package com.sofka.software.introduccionjava.Ejercicio16;
 
 public class Persona {
 
-    //Constantes
 
-    private final static char SEXODEFAULT = 'H';
-
+    //Atributos
+    public static final char HOMBRE = 'H';
+    public static final char MUJER = 'M';
+    public static final int SOBREPESO = 1;
     public static final int INFRAPESO = -1;
-
     public static final int PESOIDEAL = 0;
 
-    public static final int SOBREPESO = 1;
-    //Atributos
 
-    private String nombre;
-
-    private int edad;
-
-    private String DNI;
-
-
-    private final char sexo;
-
-    private double peso;
-
-    private double altura;
+    private String nombre = "";
+    private int edad = 0;
+    private String DNI = "";
+    private char sexo = HOMBRE;
+    private double peso = 0;
+    private double altura = 0;
+    //Constantes
 
 
     public Persona() {
-
-        this("", 0, SEXODEFAULT, 0, 0);
-
+        this.DNI = generateDNI();
     }
-
-
-
-     */
 
     public Persona(String nombre, int edad, char sexo) {
-
-        this(nombre, edad, sexo, 0, 0);
-
+        this.nombre = nombre;
+        this.edad = edad;
+        this.sexo = sexo;
+        this.DNI = generateDNI();
     }
-
-
-
 
     public Persona(String nombre, int edad, char sexo, double peso, double altura) {
-
         this.nombre = nombre;
         this.edad = edad;
+        this.DNI = generateDNI();
+        this.sexo = comprobarSexo(sexo);
         this.peso = peso;
         this.altura = altura;
-        this.sexo = sexo;
-        comprobarSexo();
-        generarDni();
+
 
     }
-
-
-    //Métodos privados
-
-    private void comprobarSexo() {
-
-
-        //Si el sexo no es una H o una M, por defecto es H
-
-        if (sexo != 'H' && sexo != 'M') {
-            this.sexo = SEXODEFAULT;
-
-        }
-
-    }
-
-
-    private void generarDni() {
-        final int divisor = 23;
-
-        //Generamos un número de 8 digitos
-        int numDNI = ((int) Math.floor(Math.random() * (100000000 - 10000000) + 10000000));
-        int res = numDNI - (numDNI / divisor * divisor);
-
-        //Calculamos la letra del DNI
-        char letraDNI = generaLetraDNI(res);
-        //Pasamos el DNI a String
-        DNI = Integer.toString(numDNI) + letraDNI;
-
-    }
-
-
-    private char generaLetraDNI(int res) {
-        char letras[] = {'T', 'R', 'W', 'A', 'G', 'M', 'Y',
-                'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z',
-                'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
-
-        return letras[res];
-
-    }
-
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-
-    }
-
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-
-    }
-
-
-
-    public void setSexo(char sexo) {
-        this.sexo = sexo;
-
-    }
-
-
-
-    public void setPeso(double peso) {
-        this.peso = peso;
-
-    }
-
-
 
     public int calcularIMC() {
-
-        //Calculamos el peso de la persona
-        double pesoActual = peso / (Math.pow(altura, 2));
-
-        //Segun el peso, devuelve un codigo
-        if (pesoActual >= 20 && pesoActual <= 25) {
-            return PESOIDEAL;
-        } else if (pesoActual < 20) {
-            return INFRAPESO;
-        } else {
-            return SOBREPESO;
+        int resultado = 0;
+        double imc = this.peso / Math.pow(this.altura, 2);
+        if (imc < 20) resultado = SOBREPESO;
+        else if (imc >= 20 && imc <= 25) {
+            resultado = PESOIDEAL;
+        } else if (imc > 25) {
+            resultado = INFRAPESO;
 
         }
 
+        return resultado;
     }
-
 
 
     public boolean esMayorDeEdad() {
-        boolean mayor = false;
-        if (edad >= 18) {
-            mayor = true;
-        }
-        return mayor;
-
+        return this.edad >= 18;
     }
 
+    public static char comprobarSexo(char sexo) {
+        if (sexo == HOMBRE || sexo == MUJER)
+            return sexo;
+        else return HOMBRE;
+    }
 
     @Override
-
     public String toString() {
-        String sexo;
-        if (this.sexo == 'H') {
-            sexo = "hombre";
-        } else {
-            sexo = "mujer";
-        }
+        return "Persona{" +
+                ", nombre='" + nombre + '\n' +
+                ", edad=" + edad +'\n'+
+                ", DNI='" + DNI + '\n' +
+                ", sexo=" + sexo +'\n'+
+                ", peso=" + peso +'\n'+
+                ", altura=" + altura +
+                '}';
+    }
+    //NUMERO ALEATROIO
+    public int generateNumeroDNI(){
+        double DNI = 10000000 + Math.random() * 90000000;
+        return (int)DNI;
+    }
+    //LETRA ALEATORIA
+    public char generateLetra(int numero) {
+        String caracteres = "TRWAGMYFPDXBNJZSQVHLCKE";
+        int dif = numero%23;
+        return caracteres.charAt(dif);
+    }
 
-        return "Informacion de la persona:n"
-                + "Nombre: " + nombre + "/n"
-                + "Sexo: " + sexo + "/n"
-                + "Edad: " + edad + " años /n"
-                + "DNI: " + DNI + "/n"
-                + "Peso: " + peso + " kg /n"
-                + "Altura: " + altura + " metros /n";
+    //NUMERO ALEATROIO
+    public String generateDNI(){
+        int numero = generateNumeroDNI();
+        String serie = String.valueOf(generateLetra(numero));
+        return serie + numero;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
     }
 
 }

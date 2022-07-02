@@ -3,128 +3,98 @@ package com.sofka.software.introduccionjava.Ejercicio16;
 import java.util.Scanner;
 
 public class Ejecutable {
-    public static void main (String []args){
-
+    public static void main(String[] args) {
         Scanner caputre = new Scanner(System.in);
+        Scanner caputre2 = new Scanner(System.in);
+        ///INGRESAR DATOS POR CONSOLA
         System.out.println("Ingrese Nombre: ");
         String nombre = caputre.nextLine();
         System.out.println("Ingrese Edad: ");
-        int edad = caputre.nextInt();
+        int edad = caputre2.nextInt();
         System.out.println("Ingrese Sexo:");
         String sexoCaracter = caputre.nextLine();
         char sexo = sexoCaracter.charAt(0);
-        System.out.println("Ing1ese Peso ");
-        int peso = caputre.nextInt();
+        System.out.println("Ingrese Peso ");
+        double peso = caputre.nextDouble();
         System.out.println("Ingrese Altura: ");
-        int altura = caputre.nextInt();
+        double altura = caputre2.nextDouble();
 
+        Persona persona1 = new Persona(nombre, edad, sexo, peso, altura);
 
+        if (persona1.calcularIMC() == 1)
+            System.out.println("TIENE SOBREPESO");
+        else if (persona1.calcularIMC() == -1) {
+            System.out.println("ESTA POR DEBAJO DE SU PESO");
+        } else if (persona1.calcularIMC() == 0) {
+            System.out.println("PESO IDEAL");
 
-        //Creamos objetos con cada constructor
-
-        Persona persona1 = new Persona();
-
-        Persona persona2 = new Persona(nombre, edad, sexo);
-
-        Persona persona3 = new Persona(nombre, edad, sexo, peso, altura);
-
-
-        //Los datos que no esten completos los insertamos con los metodos set
-
-        persona1.setNombre("Luciano");
-
-        persona1.setEdad(30);
-
-        persona1.setSexo('H');
-
-        persona1.setPeso(90);
-
-        persona1.setAltura(1.70);
-
-
-        persona2.setPeso(100.5);
-
-        persona2.setAltura(2.00);
-
-
-        //Usamos metodos para realizar la misma accion para cada objeto
-
-        System.out.println("Persona1");
-
-        MuestraMensajePeso(persona1);
-
-        MuestraMayorDeEdad(persona1);
+        }
+        if (persona1.esMayorDeEdad())
+            System.out.println("ES MAYOR");    //llamo a la funcion esa
+        else System.out.println("ES MENOR");
 
         System.out.println(persona1.toString());
+         //muestro los metodos
+                /////PERSONA 2
+
+        ///INGRESAR DATOS POR CONSOLA
+        Scanner caputre3 = new Scanner(System.in);
+
+        System.out.println("Ingrese Nombre: ");
+        String nombre2 = caputre3.nextLine();
+        System.out.println("Ingrese Edad: ");
+        int edad2 = caputre3.nextInt();
+        System.out.println("Ingrese Sexo:");
+        String sexoCaracter2 = caputre3.nextLine();
+        char sexo2 = sexoCaracter.charAt(0);
+
+        Persona persona2 = new Persona(nombre2, edad2, sexo2);
 
 
-        System.out.println("Persona2");
+        if (persona2.calcularIMC() == 1)
+            System.out.println("TIENE SOBREPESO");
+        else if (persona2.calcularIMC() == -1) {
+            System.out.println("ESTA POR DEBAJO DE SU PESO");
+        } else if (persona2.calcularIMC() == 0) {
+            System.out.println("PESO IDEAL");
 
-        MuestraMensajePeso(persona2);
-
-        MuestraMayorDeEdad(persona2);
-
+        }
+        if (persona2.esMayorDeEdad())
+            System.out.println("ES MAYOR");
+        else System.out.println("ES MENOR");
         System.out.println(persona2.toString());
 
+//        persona2.toString();
 
-        System.out.println("Persona3");
 
-        MuestraMensajePeso(persona3);
+        ////PERSONA 3
 
-        MuestraMayorDeEdad(persona3);
+        Persona persona3 = new Persona();
+        persona3.setNombre("Luciano");
+        persona2.setEdad(30);                       // le mando info
+        persona3.setSexo('H');
+        persona3.setAltura(1.80);
+        persona3.setPeso(90.5);
+
+        if (persona3.calcularIMC() == 1)
+            System.out.println("TIENE SOBREPESO");
+        else if (persona3.calcularIMC() == -1) {
+            System.out.println("ESTA POR DEBAJO DE SU PESO");
+        } else if (persona3.calcularIMC() == 0) {
+            System.out.println("PESO IDEAL");
+
+        }
+        if (persona3.esMayorDeEdad())
+            System.out.println("ES MAYOR");
+        else System.out.println("ES MENOR");
+
 
         System.out.println(persona3.toString());
 
-    }
-
-
-    public static void MuestraMensajePeso(Persona p) {
-
-        int IMC = p.calcularIMC();
-
-        switch (IMC) {
-
-            case Persona.PESOIDEAL:
-
-                System.out.println("La persona esta en su peso ideal");
-
-                break;
-
-            case Persona.INFRAPESO:
-
-                System.out.println("La persona esta por debajo de su peso ideal");
-
-                break;
-
-            case Persona.SOBREPESO:
-
-                System.out.println("La persona esta por encima de su peso ideal");
-
-                break;
-
-        }
 
     }
-
-
-    public static void MuestraMayorDeEdad(Persona p) {
-
-
-        if (p.esMayorDeEdad()) {
-
-            System.out.println("La persona es mayor de edad");
-
-        } else {
-
-            System.out.println("La persona no es mayor de edad");
-
-        }
-
-    }
-
 
 }
-
 
 
 //Ahora, crea una clase ejecutable que haga lo siguiente:
